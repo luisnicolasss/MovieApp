@@ -3,13 +3,14 @@ package com.example.movieapp.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
+import androidx.lifecycle.viewModelScope
 import com.example.movieapp.core.Resource
 import com.example.movieapp.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers
 
 class MovieViewModel(private val repo: MovieRepository) : ViewModel() {
 
-    fun fetchMainScreenMovies() = liveData(Dispatchers.IO) {
+    fun fetchMainScreenMovies() = liveData( Dispatchers.IO) {
         emit(Resource.Loading())
         try {
             emit(
